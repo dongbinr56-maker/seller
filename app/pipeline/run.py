@@ -54,9 +54,9 @@ def process_product(product: Product) -> tuple[ProductStatus, List[tuple[str, Pa
     return ProductStatus.READY, artifacts, []
 
 
-def run_pipeline(products: Iterable[Product]) -> dict:
+def run_pipeline(products: Iterable[Product]) -> dict[str, list[str]]:
     init_db()
-    results = {"READY": [], "FAILED": []}  # list[str]
+    results: dict[str, list[str]] = {"READY": [], "FAILED": []}
     with get_session() as session:
         for product in products:
             try:

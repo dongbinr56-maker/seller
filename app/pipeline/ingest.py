@@ -60,6 +60,8 @@ def ingest_products(csv_path: Path) -> List[Product]:
     with get_session() as session:
         session.add_all(products)
         session.commit()
+        for product in products:
+            session.refresh(product)
     return products
 
 
