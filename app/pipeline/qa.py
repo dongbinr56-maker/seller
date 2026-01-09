@@ -4,7 +4,10 @@ import json
 from pathlib import Path
 from typing import Iterable, List
 
+from sqlmodel import select
+
 from ..config import BANNED_WORDS, REQUIRED_MODULES
+from ..models import Product, ProductStatus, get_session
 from ..storage import artifact_path
 
 
@@ -15,7 +18,9 @@ def _contains_banned_words(text: str) -> List[str]:
 
 def spec_signature(spec: dict) -> str:
     modules = spec.get("modules", [])
-    layout = spec.get("layout", {})
+    layout = spec.get("layout") or {}
+    if not isinstance(layout, dict):
+        layout = {}
     return "|".join(modules) + f"|grid={layout.get('grid_variant')}|pages={layout.get('page_count')}"
 
 
@@ -36,8 +41,16 @@ def check_duplicate_signature(spec: dict) -> str | None:
     current_slug = spec.get("slug")
     if not current_slug:
         return None
+    with get_session() as session:
+        ready_slugs = set(
+            session.exec(select(Product.sku_slug).where(Product.status == ProductStatus.READY)).all()
+        )
+    if not ready_slugs:
+        return None
     for spec_path in Path(artifact_path(current_slug, "spec")).parent.parent.glob("*/spec.json"):
         if spec_path.parent.name == current_slug:
+            continue
+        if spec_path.parent.name not in ready_slugs:
             continue
         try:
             existing = json.loads(spec_path.read_text(encoding="utf-8"))
