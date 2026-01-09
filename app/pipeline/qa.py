@@ -13,8 +13,11 @@ def _contains_banned_words(text: str) -> List[str]:
     return [word for word in BANNED_WORDS if word in lowered]
 
 
-def spec_signature(modules: Iterable[str]) -> str:
-    return "|".join(modules)
+def spec_signature(spec: dict) -> str:
+    modules = spec.get("modules", [])
+    layout = spec.get("layout", {})
+    return "|".join(modules) + f"|grid={layout.get('grid_variant')}|pages={layout.get('page_count')}"
+
 
 
 def jaccard_similarity(a: Iterable[str], b: Iterable[str]) -> float:
@@ -28,17 +31,23 @@ def jaccard_similarity(a: Iterable[str], b: Iterable[str]) -> float:
 SIMILARITY_THRESHOLD = 0.95
 
 
-def check_duplicate_signature(slug: str, modules: List[str]) -> str | None:
-    signature = spec_signature(modules)
-    for spec_path in Path(artifact_path(slug, "spec")).parent.parent.glob("*/spec.json"):
-        if spec_path.parent.name == slug:
+def check_duplicate_signature(spec: dict) -> str | None:
+    current_niche = spec.get("niche")
+    current_modules = spec.get("modules", [])
+    current_slug = spec.get("slug")
+    if not current_slug:
+        return None
+    for spec_path in Path(artifact_path(current_slug, "spec")).parent.parent.glob("*/spec.json"):
+        if spec_path.parent.name == current_slug:
             continue
-        existing = json.loads(spec_path.read_text(encoding="utf-8"))
+        try:
+            existing = json.loads(spec_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, FileNotFoundError):
+            continue
         existing_modules = existing.get("modules", [])
-        existing_sig = spec_signature(existing_modules)
-        if existing_sig == signature:
-            return f"Duplicate spec signature with {spec_path.parent.name}"
-        if jaccard_similarity(modules, existing_modules) > SIMILARITY_THRESHOLD:
+        if existing.get("niche") != current_niche:
+            continue
+        if jaccard_similarity(current_modules, existing_modules) > SIMILARITY_THRESHOLD:
             return f"Spec too similar to {spec_path.parent.name}"
     return None
 
@@ -56,7 +65,7 @@ def validate_spec(spec: dict, description: str) -> List[str]:
         errors.append(f"Missing required modules: {', '.join(missing)}")
     if not (200 <= len(description) <= 400):
         errors.append("Description length must be between 200 and 400 characters")
-    duplicate = check_duplicate_signature(spec["slug"], spec.get("modules", []))
+    duplicate = check_duplicate_signature(spec)
     if duplicate:
         errors.append(duplicate)
     return errors
