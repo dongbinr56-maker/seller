@@ -1,0 +1,13 @@
+{
+  "font_name": "Helvetica",
+  "title_size": 22,
+  "body_size": 11,
+  "header_size": 14,
+  "footer_size": 9,
+  "primary_color": "#1F4D8F",
+  "secondary_color": "#4B5563",
+  "grid_color": "#D1D5DB",
+  "margin": 54,
+  "row_height": 20,
+  "col_width": 60
+}

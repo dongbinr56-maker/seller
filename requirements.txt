@@ -1,0 +1,7 @@
+reportlab
+sqlmodel
+typer
+pydantic
+python-slugify
+PyMuPDF
+pillow
