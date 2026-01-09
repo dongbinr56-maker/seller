@@ -14,6 +14,9 @@ from .render_pdf import render_pdfs
 from .render_preview import render_previews
 
 
+MAX_VARIANTS = 10
+
+
 def _write_error(slug: str, message: str) -> None:
     error_path = artifact_path(slug, "error")
     error_path.write_text(message, encoding="utf-8")
@@ -21,15 +24,24 @@ def _write_error(slug: str, message: str) -> None:
 
 def process_product(product: Product) -> tuple[ProductStatus, List[tuple[str, Path]], List[str]]:
     artifacts: List[tuple[str, Path]] = []
-    errors: List[str] = []
-    spec = build_spec(product.niche, product.title, product.sku_slug)
-    spec_path = write_spec(spec)
-    artifacts.append(("spec", spec_path))
-
     metadata = build_metadata(product.niche, product.title, product.sku_slug)
-    errors.extend(validate_spec(spec, metadata["description"]))
-    if errors:
-        return ProductStatus.FAILED, artifacts, errors
+    last_errors: List[str] = []
+    spec: dict | None = None
+    spec_path: Path | None = None
+    for variant in range(MAX_VARIANTS):
+        spec = build_spec(product.niche, product.title, product.sku_slug, variant=variant)
+        spec_path = write_spec(spec)
+        last_errors = validate_spec(spec, metadata["description"])
+        if not last_errors:
+            artifacts.append(("spec", spec_path))
+            break
+    if last_errors:
+        attempts = MAX_VARIANTS
+        last_modules = ", ".join(spec["modules"]) if spec else ""
+        last_errors = last_errors + [f"Variants tried: {attempts}", f"Last modules: {last_modules}"]
+        if spec_path is not None:
+            artifacts.append(("spec", spec_path))
+        return ProductStatus.FAILED, artifacts, last_errors
 
     pdf_a4, pdf_us = render_pdfs(spec)
     artifacts.extend([("pdf_a4", pdf_a4), ("pdf_usletter", pdf_us)])

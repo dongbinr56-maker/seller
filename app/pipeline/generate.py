@@ -17,37 +17,54 @@ OPTIONAL_MODULES = [
     "priority_matrix",
     "gratitude_log",
     "weekly_review",
+    "daily_focus",
+    "weekly_planner",
+    "meal_planner",
+    "water_intake",
+    "sleep_log",
+    "affirmations",
+    "project_steps",
 ]
 
 
-def _hash_seed(slug: str) -> int:
-    return int(hashlib.md5(slug.encode("utf-8")).hexdigest(), 16)
+def _hash_seed(slug: str, variant: int) -> int:
+    seed_input = f"{slug}-{variant}"
+    return int(hashlib.md5(seed_input.encode("utf-8")).hexdigest(), 16)
 
 
-def _select_optional_modules(slug: str) -> List[str]:
-    seed = _hash_seed(slug)
-    count = 1 if seed % 2 == 0 else 2
-    ordered = sorted(OPTIONAL_MODULES, key=lambda name: hashlib.md5(f"{slug}-{name}".encode("utf-8")).hexdigest())
+def _select_optional_modules(slug: str, variant: int) -> List[str]:
+    seed = _hash_seed(slug, variant)
+    count = min(1 + (seed % 4), len(OPTIONAL_MODULES))
+    ordered = sorted(
+        OPTIONAL_MODULES,
+        key=lambda name: hashlib.md5(f"{slug}-{variant}-{name}".encode("utf-8")).hexdigest(),
+    )
     return ordered[:count]
 
 
-def build_spec(niche: str, title: str, slug: str) -> dict:
+def _rotate_modules(modules: List[str], rotation: int) -> List[str]:
+    if not modules:
+        return modules
+    rotation = rotation % len(modules)
+    return modules[rotation:] + modules[:rotation]
+
+
+def build_spec(niche: str, title: str, slug: str, variant: int = 0) -> dict:
     base_modules = ["cover", "how_to", "tracker", "notes"]
-    optional = _select_optional_modules(slug)
+    optional = _select_optional_modules(slug, variant)
     modules = base_modules + optional
-    seed = _hash_seed(slug)
-    if seed % 3 == 0:
-        modules = modules[:2] + modules[3:] + [modules[2]]
-    elif seed % 3 == 1:
-        modules = [modules[0]] + modules[2:] + [modules[1]]
+    seed = _hash_seed(slug, variant)
+    modules = _rotate_modules(modules, seed % len(modules))
+    if variant % 2 == 1:
+        modules = [modules[0]] + list(reversed(modules[1:]))
     return {
         "niche": niche,
         "title": title,
         "slug": slug,
         "modules": modules,
         "layout": {
-            "page_count": 3,
-            "grid_variant": seed % 4,
+            "page_count": 3 + (seed % 3),
+            "grid_variant": (seed + variant) % 6,
         },
     }
 
