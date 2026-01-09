@@ -1,0 +1,16 @@
+{
+  "niche": "ADHD",
+  "title": "Work Deep Focus Scorecard",
+  "slug": "work-deep-focus-scorecard",
+  "modules": [
+    "cover",
+    "tracker",
+    "notes",
+    "habit_grid",
+    "how_to"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 2
+  }
+}

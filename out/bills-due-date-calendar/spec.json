@@ -1,0 +1,17 @@
+{
+  "niche": "BUDGET",
+  "title": "Bills Due Date Calendar",
+  "slug": "bills-due-date-calendar",
+  "modules": [
+    "cover",
+    "tracker",
+    "notes",
+    "habit_grid",
+    "goal_setting",
+    "how_to"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 3
+  }
+}

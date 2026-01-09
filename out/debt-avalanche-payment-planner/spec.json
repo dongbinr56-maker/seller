@@ -1,0 +1,16 @@
+{
+  "niche": "BUDGET",
+  "title": "Debt Avalanche Payment Planner",
+  "slug": "debt-avalanche-payment-planner",
+  "modules": [
+    "cover",
+    "how_to",
+    "tracker",
+    "notes",
+    "monthly_overview"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 2
+  }
+}

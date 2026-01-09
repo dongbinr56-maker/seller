@@ -1,0 +1,16 @@
+{
+  "niche": "BUDGET",
+  "title": "Quarterly Budget Review Worksheet",
+  "slug": "quarterly-budget-review-worksheet",
+  "modules": [
+    "cover",
+    "how_to",
+    "notes",
+    "monthly_overview",
+    "tracker"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 0
+  }
+}

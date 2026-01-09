@@ -1,0 +1,16 @@
+{
+  "niche": "ADHD",
+  "title": "Focus Sprint Session Log",
+  "slug": "focus-sprint-session-log",
+  "modules": [
+    "cover",
+    "how_to",
+    "notes",
+    "monthly_overview",
+    "tracker"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 0
+  }
+}

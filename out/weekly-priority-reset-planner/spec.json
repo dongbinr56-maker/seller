@@ -1,0 +1,16 @@
+{
+  "niche": "ADHD",
+  "title": "Weekly Priority Reset Planner",
+  "slug": "weekly-priority-reset-planner",
+  "modules": [
+    "cover",
+    "how_to",
+    "tracker",
+    "notes",
+    "goal_setting"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 0
+  }
+}

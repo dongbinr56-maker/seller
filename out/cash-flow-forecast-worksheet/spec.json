@@ -1,0 +1,16 @@
+{
+  "niche": "BUDGET",
+  "title": "Cash Flow Forecast Worksheet",
+  "slug": "cash-flow-forecast-worksheet",
+  "modules": [
+    "cover",
+    "how_to",
+    "notes",
+    "monthly_overview",
+    "tracker"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 0
+  }
+}

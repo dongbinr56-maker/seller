@@ -1,0 +1,16 @@
+{
+  "niche": "BUDGET",
+  "title": "No Spend Challenge Calendar",
+  "slug": "no-spend-challenge-calendar",
+  "modules": [
+    "cover",
+    "tracker",
+    "notes",
+    "habit_grid",
+    "how_to"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 0
+  }
+}

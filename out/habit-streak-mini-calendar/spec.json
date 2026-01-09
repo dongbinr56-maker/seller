@@ -1,0 +1,17 @@
+{
+  "niche": "ADHD",
+  "title": "Habit Streak Mini Calendar",
+  "slug": "habit-streak-mini-calendar",
+  "modules": [
+    "cover",
+    "how_to",
+    "notes",
+    "habit_grid",
+    "monthly_overview",
+    "tracker"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "niche": "ADHD",
+  "title": "Brain Dump Inbox Sheets",
+  "slug": "brain-dump-inbox-sheets",
+  "modules": [
+    "cover",
+    "how_to",
+    "tracker",
+    "notes",
+    "habit_grid"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 0
+  }
+}
