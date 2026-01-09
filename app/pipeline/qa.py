@@ -25,6 +25,9 @@ def jaccard_similarity(a: Iterable[str], b: Iterable[str]) -> float:
     return len(set_a & set_b) / len(set_a | set_b)
 
 
+SIMILARITY_THRESHOLD = 0.95
+
+
 def check_duplicate_signature(slug: str, modules: List[str]) -> str | None:
     signature = spec_signature(modules)
     for spec_path in Path(artifact_path(slug, "spec")).parent.parent.glob("*/spec.json"):
@@ -35,7 +38,7 @@ def check_duplicate_signature(slug: str, modules: List[str]) -> str | None:
         existing_sig = spec_signature(existing_modules)
         if existing_sig == signature:
             return f"Duplicate spec signature with {spec_path.parent.name}"
-        if jaccard_similarity(modules, existing_modules) > 0.8:
+        if jaccard_similarity(modules, existing_modules) > SIMILARITY_THRESHOLD:
             return f"Spec too similar to {spec_path.parent.name}"
     return None
 

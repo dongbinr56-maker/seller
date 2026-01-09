@@ -13,6 +13,10 @@ OPTIONAL_MODULES = [
     "reflection",
     "monthly_overview",
     "goal_setting",
+    "mood_checkin",
+    "priority_matrix",
+    "gratitude_log",
+    "weekly_review",
 ]
 
 

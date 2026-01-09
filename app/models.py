@@ -48,4 +48,4 @@ def init_db() -> None:
 
 
 def get_session() -> Session:
-    return Session(engine)
+    return Session(engine, expire_on_commit=False)
