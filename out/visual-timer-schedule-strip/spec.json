@@ -1,0 +1,17 @@
+{
+  "niche": "ADHD",
+  "title": "Visual Timer Schedule Strip",
+  "slug": "visual-timer-schedule-strip",
+  "modules": [
+    "cover",
+    "how_to",
+    "notes",
+    "goal_setting",
+    "habit_grid",
+    "tracker"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 1
+  }
+}

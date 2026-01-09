@@ -1,0 +1,16 @@
+{
+  "niche": "BUDGET",
+  "title": "Monthly Budget Dashboard Sheet",
+  "slug": "monthly-budget-dashboard-sheet",
+  "modules": [
+    "cover",
+    "how_to",
+    "notes",
+    "reflection",
+    "tracker"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 2
+  }
+}

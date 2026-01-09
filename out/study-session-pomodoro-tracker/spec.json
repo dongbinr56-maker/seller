@@ -1,0 +1,17 @@
+{
+  "niche": "ADHD",
+  "title": "Study Session Pomodoro Tracker",
+  "slug": "study-session-pomodoro-tracker",
+  "modules": [
+    "cover",
+    "how_to",
+    "tracker",
+    "notes",
+    "habit_grid",
+    "goal_setting"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 3
+  }
+}

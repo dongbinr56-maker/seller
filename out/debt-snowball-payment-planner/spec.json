@@ -1,0 +1,17 @@
+{
+  "niche": "BUDGET",
+  "title": "Debt Snowball Payment Planner",
+  "slug": "debt-snowball-payment-planner",
+  "modules": [
+    "cover",
+    "how_to",
+    "tracker",
+    "notes",
+    "monthly_overview",
+    "habit_grid"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 3
+  }
+}

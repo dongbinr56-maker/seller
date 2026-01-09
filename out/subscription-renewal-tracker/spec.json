@@ -1,0 +1,16 @@
+{
+  "niche": "BUDGET",
+  "title": "Subscription Renewal Tracker",
+  "slug": "subscription-renewal-tracker",
+  "modules": [
+    "cover",
+    "tracker",
+    "notes",
+    "monthly_overview",
+    "how_to"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 0
+  }
+}

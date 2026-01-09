@@ -1,0 +1,16 @@
+{
+  "niche": "BUDGET",
+  "title": "Income Paycheck Tracker",
+  "slug": "income-paycheck-tracker",
+  "modules": [
+    "cover",
+    "how_to",
+    "notes",
+    "habit_grid",
+    "tracker"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 2
+  }
+}

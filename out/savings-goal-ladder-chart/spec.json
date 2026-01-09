@@ -1,0 +1,16 @@
+{
+  "niche": "BUDGET",
+  "title": "Savings Goal Ladder Chart",
+  "slug": "savings-goal-ladder-chart",
+  "modules": [
+    "cover",
+    "tracker",
+    "notes",
+    "monthly_overview",
+    "how_to"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 0
+  }
+}

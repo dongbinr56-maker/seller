@@ -56,7 +56,7 @@ def process_product(product: Product) -> tuple[ProductStatus, List[tuple[str, Pa
 
 def run_pipeline(products: Iterable[Product]) -> dict:
     init_db()
-    results = {"READY": [], "FAILED": []}
+    results = {"READY": [], "FAILED": []}  # list[str]
     with get_session() as session:
         for product in products:
             try:
@@ -65,15 +65,17 @@ def run_pipeline(products: Iterable[Product]) -> dict:
                 status = ProductStatus.FAILED
                 artifacts = []
                 errors = [str(exc)]
+
             product.status = status
             session.add(product)
             session.commit()
             session.refresh(product)
+
             if status == ProductStatus.READY:
                 record_artifacts(product, artifacts)
-                results["READY"].append(product)
+                results["READY"].append(product.sku_slug)   # ✅ slug만 저장
             else:
                 message = "\n".join(errors) if errors else "Unknown error"
                 _write_error(product.sku_slug, message)
-                results["FAILED"].append(product)
+                results["FAILED"].append(product.sku_slug) # ✅ slug만 저장
     return results

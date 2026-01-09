@@ -1,0 +1,16 @@
+{
+  "niche": "BUDGET",
+  "title": "Expense Category Envelope Tracker",
+  "slug": "expense-category-envelope-tracker",
+  "modules": [
+    "cover",
+    "tracker",
+    "notes",
+    "monthly_overview",
+    "how_to"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 2
+  }
+}

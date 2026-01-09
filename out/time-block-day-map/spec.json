@@ -1,0 +1,17 @@
+{
+  "niche": "ADHD",
+  "title": "Time Block Day Map",
+  "slug": "time-block-day-map",
+  "modules": [
+    "cover",
+    "tracker",
+    "notes",
+    "reflection",
+    "habit_grid",
+    "how_to"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 1
+  }
+}

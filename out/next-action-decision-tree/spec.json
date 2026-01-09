@@ -1,0 +1,16 @@
+{
+  "niche": "ADHD",
+  "title": "Next Action Decision Tree",
+  "slug": "next-action-decision-tree",
+  "modules": [
+    "cover",
+    "how_to",
+    "notes",
+    "habit_grid",
+    "tracker"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 0
+  }
+}

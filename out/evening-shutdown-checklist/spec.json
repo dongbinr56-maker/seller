@@ -1,0 +1,16 @@
+{
+  "niche": "ADHD",
+  "title": "Evening Shutdown Checklist",
+  "slug": "evening-shutdown-checklist",
+  "modules": [
+    "cover",
+    "how_to",
+    "tracker",
+    "notes",
+    "monthly_overview"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 0
+  }
+}

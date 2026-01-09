@@ -1,0 +1,17 @@
+{
+  "niche": "ADHD",
+  "title": "Errand Batch Route Planner",
+  "slug": "errand-batch-route-planner",
+  "modules": [
+    "cover",
+    "how_to",
+    "tracker",
+    "notes",
+    "goal_setting",
+    "reflection"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 1
+  }
+}

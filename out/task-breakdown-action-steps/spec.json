@@ -1,0 +1,16 @@
+{
+  "niche": "ADHD",
+  "title": "Task Breakdown Action Steps",
+  "slug": "task-breakdown-action-steps",
+  "modules": [
+    "cover",
+    "how_to",
+    "tracker",
+    "notes",
+    "habit_grid"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 2
+  }
+}

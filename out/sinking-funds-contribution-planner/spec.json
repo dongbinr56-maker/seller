@@ -1,0 +1,16 @@
+{
+  "niche": "BUDGET",
+  "title": "Sinking Funds Contribution Planner",
+  "slug": "sinking-funds-contribution-planner",
+  "modules": [
+    "cover",
+    "how_to",
+    "tracker",
+    "notes",
+    "goal_setting"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 2
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "niche": "ADHD",
+  "title": "Distraction Trigger Tracker",
+  "slug": "distraction-trigger-tracker",
+  "modules": [
+    "cover",
+    "how_to",
+    "tracker",
+    "notes",
+    "reflection",
+    "monthly_overview"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 3
+  }
+}

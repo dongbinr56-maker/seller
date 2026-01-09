@@ -36,8 +36,8 @@ def build(
     results = run_pipeline(products)
     typer.echo(f"READY: {len(results['READY'])}")
     typer.echo(f"FAILED: {len(results['FAILED'])}")
-    for product in results["FAILED"]:
-        typer.echo(f"FAILED: {product.sku_slug}")
+    for slug in results["FAILED"]:
+      typer.echo(f"FAILED: {slug}")
 
 
 @app.command()

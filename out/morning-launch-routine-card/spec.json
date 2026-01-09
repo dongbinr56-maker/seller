@@ -1,0 +1,16 @@
+{
+  "niche": "ADHD",
+  "title": "Morning Launch Routine Card",
+  "slug": "morning-launch-routine-card",
+  "modules": [
+    "cover",
+    "tracker",
+    "notes",
+    "monthly_overview",
+    "how_to"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 0
+  }
+}

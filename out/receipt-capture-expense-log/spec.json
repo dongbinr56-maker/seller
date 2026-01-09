@@ -1,0 +1,17 @@
+{
+  "niche": "BUDGET",
+  "title": "Receipt Capture Expense Log",
+  "slug": "receipt-capture-expense-log",
+  "modules": [
+    "cover",
+    "how_to",
+    "tracker",
+    "notes",
+    "goal_setting",
+    "reflection"
+  ],
+  "layout": {
+    "page_count": 3,
+    "grid_variant": 3
+  }
+}
