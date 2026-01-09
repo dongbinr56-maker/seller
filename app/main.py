@@ -37,7 +37,7 @@ def build(
     typer.echo(f"READY: {len(results['READY'])}")
     typer.echo(f"FAILED: {len(results['FAILED'])}")
     for slug in results["FAILED"]:
-      typer.echo(f"FAILED: {slug}")
+        typer.echo(f"FAILED: {slug}")
 
 
 @app.command()
