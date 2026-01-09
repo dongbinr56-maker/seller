@@ -37,8 +37,11 @@ def _base_tags(niche: str) -> List[str]:
 def _normalize_description(text: str) -> str:
     if len(text) < 200:
         filler = " Designed for easy printing and daily use, this template keeps your routine consistent and clear."
-        while len(text) + len(filler) <= 400 and len(text) < 200:
+        max_iterations = 10
+        iteration = 0
+        while len(text) + len(filler) <= 400 and len(text) < 200 and iteration < max_iterations:
             text += filler
+            iteration += 1
     if len(text) > 400:
         text = text[:397].rstrip() + "..."
     if len(text) < 200:
