@@ -19,7 +19,6 @@ def spec_signature(spec: dict) -> str:
     return "|".join(modules) + f"|grid={layout.get('grid_variant')}|pages={layout.get('page_count')}"
 
 
-
 def jaccard_similarity(a: Iterable[str], b: Iterable[str]) -> float:
     set_a = set(a)
     set_b = set(b)
