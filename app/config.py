@@ -19,6 +19,8 @@ BANNED_WORDS: List[str] = [
     "miracle",
 ]
 
+ALLOWED_NICHES = {"BUDGET", "ADHD"}
+
 DISCLAIMER_TEXT = "This printable is for informational purposes only."
 REQUIRED_MODULES = ["cover", "how_to", "tracker", "notes"]
 

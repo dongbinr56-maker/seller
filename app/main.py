@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import logging
 from typing import Optional
 
 import typer
@@ -9,6 +10,8 @@ from . import config
 from .models import ProductStatus, reset_engine
 from .pipeline.ingest import ingest_products, list_products
 from .pipeline.run import run_pipeline
+
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 app = typer.Typer(help="Digital template production pipeline")
 

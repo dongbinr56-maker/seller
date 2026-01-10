@@ -98,9 +98,13 @@ def render_pdf(spec: dict, page_size: Tuple[float, float], output_path: Path) ->
     canv.save()
 
 
-def render_pdfs(spec: dict) -> tuple[Path, Path]:
-    a4_path = artifact_path(spec["slug"], "pdf_a4")
-    us_path = artifact_path(spec["slug"], "pdf_usletter")
+def render_pdfs(
+    spec: dict,
+    base_dir: Path | None = None,
+    include_slug: bool = True,
+) -> tuple[Path, Path]:
+    a4_path = artifact_path(spec["slug"], "pdf_a4", base_dir=base_dir, include_slug=include_slug)
+    us_path = artifact_path(spec["slug"], "pdf_usletter", base_dir=base_dir, include_slug=include_slug)
     render_pdf(spec, A4, a4_path)
     render_pdf(spec, LETTER, us_path)
     return a4_path, us_path

@@ -68,8 +68,16 @@ def build_metadata(niche: str, title: str, slug: str) -> dict:
     return metadata
 
 
-def write_metadata(metadata: dict) -> Path:
-    path = artifact_path(metadata.get("slug", ""), "metadata") if metadata.get("slug") else None
+def write_metadata(
+    metadata: dict,
+    base_dir: Path | None = None,
+    include_slug: bool = True,
+) -> Path:
+    path = (
+        artifact_path(metadata.get("slug", ""), "metadata", base_dir=base_dir, include_slug=include_slug)
+        if metadata.get("slug")
+        else None
+    )
     if path is None:
         raise ValueError("Metadata must include slug for output")
     path.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
