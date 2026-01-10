@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import csv
+import hashlib
+import re
 from pathlib import Path
 from typing import Iterable, List
 
@@ -8,6 +10,7 @@ from slugify import slugify
 
 from sqlmodel import select
 
+from ..config import ALLOWED_NICHES
 from ..models import Product, ProductStatus, get_session, init_db
 
 
@@ -31,7 +34,13 @@ def load_rows(csv_path: Path) -> List[dict]:
 
 
 def slug_from_title(title: str) -> str:
-    return slugify(title)
+    slug = slugify(title)
+    slug = re.sub(r"[^a-z0-9-]+", "-", slug.lower()).strip("-")
+    if not slug:
+        slug = hashlib.md5(title.encode("utf-8")).hexdigest()[:12]
+    if ".." in slug or "/" in slug or "\\" in slug:
+        raise ValueError("Invalid slug generated from title")
+    return slug
 
 
 def ingest_products(csv_path: Path) -> List[Product]:
@@ -44,6 +53,8 @@ def ingest_products(csv_path: Path) -> List[Product]:
         title = row["title"].strip()
         if not niche or not title:
             raise ValueError("CSV rows must include niche and title")
+        if niche not in ALLOWED_NICHES:
+            raise ValueError(f"Unsupported niche: {niche}")
         key = (niche.lower(), title.lower())
         if key in seen:
             raise ValueError(f"Duplicate title in niche: {niche} - {title}")

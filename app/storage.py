@@ -8,8 +8,8 @@ from .models import Artifact, Product, get_session
 
 
 ARTIFACT_NAMES = {
-    "pdf_a4": "product_a4.pdf",
-    "pdf_usletter": "product_usletter.pdf",
+    "pdf_a4": "a4.pdf",
+    "pdf_usletter": "letter.pdf",
     "preview_1": "preview_1.png",
     "preview_2": "preview_2.png",
     "preview_3": "preview_3.png",
@@ -21,15 +21,21 @@ ARTIFACT_NAMES = {
 }
 
 
-def product_dir(slug: str) -> Path:
-    path = config.OUT_DIR / slug
+def product_dir(slug: str, base_dir: Path | None = None, include_slug: bool = True) -> Path:
+    root = base_dir or config.OUT_DIR
+    path = root / slug if include_slug else root
     path.mkdir(parents=True, exist_ok=True)
     return path
 
 
-def artifact_path(slug: str, artifact_type: str) -> Path:
+def artifact_path(
+    slug: str,
+    artifact_type: str,
+    base_dir: Path | None = None,
+    include_slug: bool = True,
+) -> Path:
     filename = ARTIFACT_NAMES[artifact_type]
-    return product_dir(slug) / filename
+    return product_dir(slug, base_dir=base_dir, include_slug=include_slug) / filename
 
 
 def record_artifacts(product: Product, artifacts: Iterable[tuple[str, Path]]) -> None:

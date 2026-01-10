@@ -26,7 +26,8 @@ class PipelineTests(unittest.TestCase):
 
     def test_banned_words(self) -> None:
         spec = {"title": "Miracle Plan", "modules": ["cover", "how_to", "tracker", "notes"], "slug": "test"}
-        errors = validate_spec(spec, "Valid description" * 20)
+        metadata = {"description": "Valid description" * 20, "tags": ["planner"]}
+        errors = validate_spec(spec, metadata)
         self.assertTrue(any("Banned" in error for error in errors))
 
     def test_metadata_length(self) -> None:
