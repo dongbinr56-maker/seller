@@ -23,6 +23,8 @@ class Product(SQLModel, table=True):
     format: str = "printable"
     price: float = 4.99
     status: ProductStatus = Field(default=ProductStatus.DRAFT)
+    fail_code: Optional[str] = None
+    fail_detail: Optional[str] = None
     created_at: datetime = Field(default_factory=datetime.utcnow)
 
 
