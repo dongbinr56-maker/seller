@@ -2,15 +2,56 @@
   "niche": "ADHD",
   "title": "Weekly Priority Reset Planner",
   "slug": "weekly-priority-reset-planner",
+  "variant": 0,
+  "theme": "warm_neutral",
+  "archetype": "routine_builder",
   "modules": [
     "cover",
     "how_to",
     "tracker",
     "notes",
-    "weekly_review"
+    "quick_start",
+    "morning_routine",
+    "evening_routine",
+    "weekly_routine",
+    "habit_grid",
+    "gratitude_log",
+    "notes_summary",
+    "mood_checkin",
+    "daily_focus",
+    "weekly_planner",
+    "project_steps"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "morning_routine",
+    "evening_routine",
+    "weekly_routine",
+    "habit_grid",
+    "gratitude_log",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "Routines that feel doable",
+    "included_lines": [
+      "Morning and evening routines",
+      "Weekly routine and habit grid",
+      "Gratitude and notes summary"
+    ],
+    "howto_lines": [
+      "Start with the smallest version",
+      "Repeat for one week",
+      "Adjust, do not restart"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 0
+    "page_count": 8,
+    "grid_variant": 2,
+    "preview_pages": [
+      0,
+      2,
+      4
+    ]
   }
 }

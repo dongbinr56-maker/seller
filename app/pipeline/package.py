@@ -22,9 +22,46 @@ def create_readme(slug: str) -> Path:
 
 
 def create_bundle(slug: str, pdf_a4: Path, pdf_us: Path, readme_path: Path) -> Path:
+    """
+    Create a distributable bundle zip for one SKU.
+
+    Expected contents (all required):
+      - product_a4.pdf
+      - product_usletter.pdf
+      - preview_1.png, preview_2.png, preview_3.png
+      - spec.json
+      - metadata.json
+      - README.txt (or whatever readme_path.name is)
+    """
     bundle_path = artifact_path(slug, "bundle")
+
+    # All artifacts live in the same SKU directory as bundle.zip
+    sku_dir = bundle_path.parent
+
+    # NOTE: We intentionally resolve by filename here because:
+    # - previews/spec/metadata are already generated into out/{slug}/
+    # - it avoids guessing artifact_path keys (robust even if keys differ)
+    required_files = [
+        pdf_a4,
+        pdf_us,
+        readme_path,
+        sku_dir / "preview_1.png",
+        sku_dir / "preview_2.png",
+        sku_dir / "preview_3.png",
+        sku_dir / "spec.json",
+        sku_dir / "metadata.json",
+    ]
+
+    # Fail fast if any required artifact is missing
+    missing = [p for p in required_files if not p.exists()]
+    if missing:
+        missing_list = ", ".join(str(p) for p in missing)
+        raise FileNotFoundError(f"[{slug}] bundle inputs missing: {missing_list}")
+
+    # Deterministic order in the zip (important for reproducibility)
     with zipfile.ZipFile(bundle_path, "w", compression=zipfile.ZIP_DEFLATED) as bundle:
-        bundle.write(pdf_a4, pdf_a4.name)
-        bundle.write(pdf_us, pdf_us.name)
-        bundle.write(readme_path, readme_path.name)
+        for p in required_files:
+            # Store only the basename in the zip (no folder paths)
+            bundle.write(p, arcname=p.name)
+
     return bundle_path

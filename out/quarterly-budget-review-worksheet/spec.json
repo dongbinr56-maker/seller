@@ -2,15 +2,56 @@
   "niche": "BUDGET",
   "title": "Quarterly Budget Review Worksheet",
   "slug": "quarterly-budget-review-worksheet",
+  "variant": 0,
+  "theme": "warm_neutral",
+  "archetype": "annual_overview",
   "modules": [
     "cover",
     "how_to",
+    "tracker",
     "notes",
+    "quick_start",
+    "annual_overview",
     "monthly_overview",
-    "tracker"
+    "income_summary",
+    "expense_summary",
+    "savings_goal_tracker",
+    "notes_summary",
+    "goal_setting",
+    "priority_matrix",
+    "weekly_review",
+    "reflection"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "annual_overview",
+    "monthly_overview",
+    "income_summary",
+    "expense_summary",
+    "savings_goal_tracker",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "Year-at-a-glance money dashboard",
+    "included_lines": [
+      "Annual and monthly overview pages",
+      "Income and expense summaries",
+      "Savings goal tracker and notes"
+    ],
+    "howto_lines": [
+      "Update totals once a month",
+      "Compare months using summaries",
+      "Keep goals visible all year"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 0
+    "page_count": 8,
+    "grid_variant": 5,
+    "preview_pages": [
+      0,
+      2,
+      3
+    ]
   }
 }

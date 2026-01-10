@@ -2,16 +2,56 @@
   "niche": "BUDGET",
   "title": "Debt Snowball Payment Planner",
   "slug": "debt-snowball-payment-planner",
+  "variant": 0,
+  "theme": "warm_neutral",
+  "archetype": "debt_payoff",
   "modules": [
     "cover",
     "how_to",
     "tracker",
     "notes",
+    "quick_start",
+    "debt_list",
+    "avalanche_tracker",
+    "snowball_tracker",
+    "payment_log",
+    "progress_meter",
+    "notes_summary",
+    "weekly_review",
+    "project_steps",
     "monthly_overview",
-    "habit_grid"
+    "reflection"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "debt_list",
+    "avalanche_tracker",
+    "snowball_tracker",
+    "payment_log",
+    "progress_meter",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "A payoff plan you can follow",
+    "included_lines": [
+      "Debt list and payment log",
+      "Avalanche and snowball trackers",
+      "Progress meter and notes"
+    ],
+    "howto_lines": [
+      "List balances from statements",
+      "Pick avalanche or snowball",
+      "Track each payment you make"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 3
+    "page_count": 8,
+    "grid_variant": 2,
+    "preview_pages": [
+      0,
+      2,
+      3
+    ]
   }
 }
