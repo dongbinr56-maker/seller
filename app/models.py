@@ -4,6 +4,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Optional
 
+from sqlalchemy import inspect, text
 from sqlmodel import Field, SQLModel, create_engine, Session
 
 from . import config
@@ -47,6 +48,29 @@ def reset_engine() -> None:
 def init_db() -> None:
     config.OUT_DIR.mkdir(parents=True, exist_ok=True)
     SQLModel.metadata.create_all(engine)
+    _migrate_db()
+
+
+def _migrate_db() -> None:
+    """Migrate existing database schema to match current models."""
+    try:
+        inspector = inspect(engine)
+        
+        if "product" in inspector.get_table_names():
+            columns = {col["name"] for col in inspector.get_columns("product")}
+            
+            # Add fail_code column if missing
+            if "fail_code" not in columns:
+                with engine.begin() as conn:
+                    conn.execute(text("ALTER TABLE product ADD COLUMN fail_code TEXT"))
+            
+            # Add fail_detail column if missing
+            if "fail_detail" not in columns:
+                with engine.begin() as conn:
+                    conn.execute(text("ALTER TABLE product ADD COLUMN fail_detail TEXT"))
+    except Exception:
+        # If migration fails, table might not exist yet or schema is already up to date
+        pass
 
 
 def get_session() -> Session:

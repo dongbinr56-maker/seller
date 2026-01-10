@@ -416,7 +416,7 @@ def _draw_checklist_table(
 def _page_included_pages(canv: canvas.Canvas, spec: dict, style: dict, pw: float, ph: float) -> None:
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Included Pages")
+    _draw_section_title(canv, margin, ph - margin - 18, "Included Pages", style)
 
     recipe = spec.get("recipe") if isinstance(spec.get("recipe"), list) else []
     # cover/included/back_cover는 목록에서 빼고 “실사용 페이지”만 보여줌
@@ -434,7 +434,7 @@ def _page_included_pages(canv: canvas.Canvas, spec: dict, style: dict, pw: float
 def _page_print_tips(canv: canvas.Canvas, spec: dict, style: dict, pw: float, ph: float) -> None:
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Print Tips")
+    _draw_section_title(canv, margin, ph - margin - 18, "Print Tips", style)
 
     copy = spec.get("copy", {}) if isinstance(spec.get("copy", {}), dict) else {}
     tips = copy.get("print_tips", []) if isinstance(copy.get("print_tips", []), list) else []
@@ -568,7 +568,7 @@ def _page_cover(canv: canvas.Canvas, spec: dict, style: dict, pw: float, ph: flo
 def _page_quick_start(canv: canvas.Canvas, spec: dict, style: dict, pw: float, ph: float) -> None:
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Quick Start")
+    _draw_section_title(canv, margin, ph - margin - 18, "Quick Start", style)
 
     top = ph - margin - 60
     h = ph - 2 * margin - 120
@@ -586,7 +586,7 @@ def _page_quick_start(canv: canvas.Canvas, spec: dict, style: dict, pw: float, p
 def _page_cashflow_monthly(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Monthly Cash Flow")
+    _draw_section_title(canv, margin, ph - margin - 18, "Monthly Cash Flow", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -603,7 +603,7 @@ def _page_cashflow_monthly(canv, spec, style, pw, ph):
 def _page_cashflow_weekly(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Weekly Forecast")
+    _draw_section_title(canv, margin, ph - margin - 18, "Weekly Forecast", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -620,7 +620,7 @@ def _page_cashflow_weekly(canv, spec, style, pw, ph):
 def _page_bills_due_table(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Bills Due")
+    _draw_section_title(canv, margin, ph - margin - 18, "Bills Due", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -637,7 +637,7 @@ def _page_bills_due_table(canv, spec, style, pw, ph):
 def _page_expense_log(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Expense Log")
+    _draw_section_title(canv, margin, ph - margin - 18, "Expense Log", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -654,7 +654,7 @@ def _page_expense_log(canv, spec, style, pw, ph):
 def _page_sinking_funds(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Sinking Funds")
+    _draw_section_title(canv, margin, ph - margin - 18, "Sinking Funds", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -671,7 +671,7 @@ def _page_sinking_funds(canv, spec, style, pw, ph):
 def _page_payment_log(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Payment Log")
+    _draw_section_title(canv, margin, ph - margin - 18, "Payment Log", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -688,7 +688,7 @@ def _page_payment_log(canv, spec, style, pw, ph):
 def _page_bills_calendar(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Bills Calendar")
+    _draw_section_title(canv, margin, ph - margin - 18, "Bills Calendar", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -705,7 +705,7 @@ def _page_bills_calendar(canv, spec, style, pw, ph):
 def _page_category_budget(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Category Budget")
+    _draw_section_title(canv, margin, ph - margin - 18, "Category Budget", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -722,7 +722,7 @@ def _page_category_budget(canv, spec, style, pw, ph):
 def _page_debt_list(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Debt List")
+    _draw_section_title(canv, margin, ph - margin - 18, "Debt List", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -739,7 +739,7 @@ def _page_debt_list(canv, spec, style, pw, ph):
 def _page_avalanche(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Avalanche Tracker")
+    _draw_section_title(canv, margin, ph - margin - 18, "Avalanche Tracker", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -756,7 +756,7 @@ def _page_avalanche(canv, spec, style, pw, ph):
 def _page_snowball(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Snowball Tracker")
+    _draw_section_title(canv, margin, ph - margin - 18, "Snowball Tracker", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -773,7 +773,7 @@ def _page_snowball(canv, spec, style, pw, ph):
 def _page_progress_meter(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Progress Meter")
+    _draw_section_title(canv, margin, ph - margin - 18, "Progress Meter", style)
 
     top = ph - margin - 60
     h = ph - 2 * margin - 130
@@ -801,7 +801,7 @@ def _page_progress_meter(canv, spec, style, pw, ph):
 def _page_annual_overview(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Annual Overview")
+    _draw_section_title(canv, margin, ph - margin - 18, "Annual Overview", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -818,7 +818,7 @@ def _page_annual_overview(canv, spec, style, pw, ph):
 def _page_monthly_overview(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Monthly Overview")
+    _draw_section_title(canv, margin, ph - margin - 18, "Monthly Overview", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -835,7 +835,7 @@ def _page_monthly_overview(canv, spec, style, pw, ph):
 def _page_income_summary(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Income Summary")
+    _draw_section_title(canv, margin, ph - margin - 18, "Income Summary", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -852,7 +852,7 @@ def _page_income_summary(canv, spec, style, pw, ph):
 def _page_expense_summary(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Expense Summary")
+    _draw_section_title(canv, margin, ph - margin - 18, "Expense Summary", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -869,7 +869,7 @@ def _page_expense_summary(canv, spec, style, pw, ph):
 def _page_savings_goal_tracker(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Savings Goal Tracker")
+    _draw_section_title(canv, margin, ph - margin - 18, "Savings Goal Tracker", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -886,7 +886,7 @@ def _page_savings_goal_tracker(canv, spec, style, pw, ph):
 def _page_no_spend_calendar(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "No-Spend Calendar")
+    _draw_section_title(canv, margin, ph - margin - 18, "No-Spend Calendar", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -903,7 +903,7 @@ def _page_no_spend_calendar(canv, spec, style, pw, ph):
 def _page_challenge_tracker(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Challenge Tracker")
+    _draw_section_title(canv, margin, ph - margin - 18, "Challenge Tracker", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -921,7 +921,7 @@ def _page_challenge_tracker(canv, spec, style, pw, ph):
 def _page_inbox_capture(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Inbox Capture")
+    _draw_section_title(canv, margin, ph - margin - 18, "Inbox Capture", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -938,7 +938,7 @@ def _page_inbox_capture(canv, spec, style, pw, ph):
 def _page_clarify_next_action(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Clarify → Next Action")
+    _draw_section_title(canv, margin, ph - margin - 18, "Clarify → Next Action", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -955,7 +955,7 @@ def _page_clarify_next_action(canv, spec, style, pw, ph):
 def _page_priority_matrix(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Priority Matrix")
+    _draw_section_title(canv, margin, ph - margin - 18, "Priority Matrix", style)
 
     top = ph - margin - 60
     h = ph - 2 * margin - 130
@@ -976,7 +976,7 @@ def _page_priority_matrix(canv, spec, style, pw, ph):
 def _page_time_block(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Time Block Plan")
+    _draw_section_title(canv, margin, ph - margin - 18, "Time Block Plan", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -993,7 +993,7 @@ def _page_time_block(canv, spec, style, pw, ph):
 def _page_habit_grid(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Habit Grid (30 Days)")
+    _draw_section_title(canv, margin, ph - margin - 18, "Habit Grid (30 Days)", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1010,7 +1010,7 @@ def _page_habit_grid(canv, spec, style, pw, ph):
 def _page_focus_blocks(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Focus Blocks")
+    _draw_section_title(canv, margin, ph - margin - 18, "Focus Blocks", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1027,7 +1027,7 @@ def _page_focus_blocks(canv, spec, style, pw, ph):
 def _page_deep_work_log(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Deep Work Log")
+    _draw_section_title(canv, margin, ph - margin - 18, "Deep Work Log", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1044,7 +1044,7 @@ def _page_deep_work_log(canv, spec, style, pw, ph):
 def _page_distraction_log(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Distraction Log")
+    _draw_section_title(canv, margin, ph - margin - 18, "Distraction Log", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1061,7 +1061,7 @@ def _page_distraction_log(canv, spec, style, pw, ph):
 def _page_break_plan(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Break Plan")
+    _draw_section_title(canv, margin, ph - margin - 18, "Break Plan", style)
 
     top = ph - margin - 60
     h = ph - 2 * margin - 130
@@ -1089,7 +1089,7 @@ def _page_break_plan(canv, spec, style, pw, ph):
 def _page_mood_checkin(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Mood Check-in")
+    _draw_section_title(canv, margin, ph - margin - 18, "Mood Check-in", style)
 
     top = ph - margin - 60
     h = ph - 2 * margin - 130
@@ -1104,7 +1104,7 @@ def _page_mood_checkin(canv, spec, style, pw, ph):
 def _page_morning_routine(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Morning Routine")
+    _draw_section_title(canv, margin, ph - margin - 18, "Morning Routine", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1121,7 +1121,7 @@ def _page_morning_routine(canv, spec, style, pw, ph):
 def _page_evening_routine(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Evening Routine")
+    _draw_section_title(canv, margin, ph - margin - 18, "Evening Routine", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1138,7 +1138,7 @@ def _page_evening_routine(canv, spec, style, pw, ph):
 def _page_weekly_routine(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Weekly Routine")
+    _draw_section_title(canv, margin, ph - margin - 18, "Weekly Routine", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1155,7 +1155,7 @@ def _page_weekly_routine(canv, spec, style, pw, ph):
 def _page_gratitude_log(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Gratitude Log")
+    _draw_section_title(canv, margin, ph - margin - 18, "Gratitude Log", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1172,7 +1172,7 @@ def _page_gratitude_log(canv, spec, style, pw, ph):
 def _page_weekly_goals(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Weekly Goals")
+    _draw_section_title(canv, margin, ph - margin - 18, "Weekly Goals", style)
 
     top = ph - margin - 60
     h = ph - 2 * margin - 130
@@ -1190,7 +1190,7 @@ def _page_weekly_goals(canv, spec, style, pw, ph):
 def _page_daily_priorities(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Daily Priorities")
+    _draw_section_title(canv, margin, ph - margin - 18, "Daily Priorities", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1207,7 +1207,7 @@ def _page_daily_priorities(canv, spec, style, pw, ph):
 def _page_wins_lessons(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Wins & Lessons")
+    _draw_section_title(canv, margin, ph - margin - 18, "Wins & Lessons", style)
 
     top = ph - margin - 60
     h = ph - 2 * margin - 130
@@ -1221,7 +1221,7 @@ def _page_wins_lessons(canv, spec, style, pw, ph):
 def _page_next_week_plan(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Next Week Plan")
+    _draw_section_title(canv, margin, ph - margin - 18, "Next Week Plan", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1238,7 +1238,7 @@ def _page_next_week_plan(canv, spec, style, pw, ph):
 def _page_project_overview(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Project Overview")
+    _draw_section_title(canv, margin, ph - margin - 18, "Project Overview", style)
 
     top = ph - margin - 60
     h = ph - 2 * margin - 130
@@ -1255,7 +1255,7 @@ def _page_project_overview(canv, spec, style, pw, ph):
 def _page_task_backlog(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Task Backlog")
+    _draw_section_title(canv, margin, ph - margin - 18, "Task Backlog", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1272,7 +1272,7 @@ def _page_task_backlog(canv, spec, style, pw, ph):
 def _page_kanban_board(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Kanban Board")
+    _draw_section_title(canv, margin, ph - margin - 18, "Kanban Board", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1289,7 +1289,7 @@ def _page_kanban_board(canv, spec, style, pw, ph):
 def _page_milestones(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Milestones")
+    _draw_section_title(canv, margin, ph - margin - 18, "Milestones", style)
     top = ph - margin - 60
     h = ph - 2 * margin - 130
     w = pw - 2 * margin
@@ -1306,7 +1306,7 @@ def _page_milestones(canv, spec, style, pw, ph):
 def _page_meeting_notes(canv, spec, style, pw, ph):
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Meeting Notes")
+    _draw_section_title(canv, margin, ph - margin - 18, "Meeting Notes", style)
 
     top = ph - margin - 60
     h = ph - 2 * margin - 130
@@ -1319,7 +1319,7 @@ def _page_meeting_notes(canv, spec, style, pw, ph):
 def _page_notes_summary(canv: canvas.Canvas, spec: dict, style: dict, pw: float, ph: float) -> None:
     margin = float(_s(style, "margin", 54))
     _draw_header(canv, style, str(spec.get("title", "")), pw, ph, margin)
-    _draw_section_title(canv, margin, ph - margin - 18, "Notes & Summary")
+    _draw_section_title(canv, margin, ph - margin - 18, "Notes & Summary", style)
 
     top = ph - margin - 60
     h = ph - 2 * margin - 120
