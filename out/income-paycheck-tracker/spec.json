@@ -2,15 +2,56 @@
   "niche": "BUDGET",
   "title": "Income Paycheck Tracker",
   "slug": "income-paycheck-tracker",
+  "variant": 0,
+  "theme": "warm_neutral",
+  "archetype": "cash_flow",
   "modules": [
     "cover",
     "how_to",
+    "tracker",
     "notes",
+    "quick_start",
+    "cashflow_monthly",
+    "cashflow_weekly",
+    "bills_due_table",
+    "expense_log",
+    "sinking_funds",
+    "notes_summary",
+    "goal_setting",
+    "project_steps",
     "gratitude_log",
-    "tracker"
+    "weekly_review"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "cashflow_monthly",
+    "cashflow_weekly",
+    "bills_due_table",
+    "expense_log",
+    "sinking_funds",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "Cash flow clarity in minutes a day",
+    "included_lines": [
+      "Monthly and weekly cash flow pages",
+      "Bills due table plus expense log",
+      "Sinking funds tracker and notes"
+    ],
+    "howto_lines": [
+      "Print only the pages you need",
+      "Fill one line per transaction",
+      "Review weekly and adjust quickly"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 2
+    "page_count": 8,
+    "grid_variant": 5,
+    "preview_pages": [
+      0,
+      2,
+      3
+    ]
   }
 }

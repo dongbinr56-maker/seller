@@ -65,6 +65,8 @@ def build_signature_index() -> list[dict]:
         slug = spec_path.parent.name
         if slug not in ready_slugs:
             continue
+        if spec_path.parent.name not in ready_slugs:
+            continue
         try:
             existing = json.loads(spec_path.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, FileNotFoundError):

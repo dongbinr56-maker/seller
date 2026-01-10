@@ -2,15 +2,56 @@
   "niche": "ADHD",
   "title": "Focus Sprint Session Log",
   "slug": "focus-sprint-session-log",
+  "variant": 0,
+  "theme": "warm_neutral",
+  "archetype": "focus_blocks",
   "modules": [
     "cover",
     "how_to",
+    "tracker",
     "notes",
-    "monthly_overview",
-    "tracker"
+    "quick_start",
+    "focus_blocks",
+    "deep_work_log",
+    "distraction_log",
+    "break_plan",
+    "mood_checkin",
+    "notes_summary",
+    "affirmations",
+    "weekly_planner",
+    "daily_focus",
+    "project_steps"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "focus_blocks",
+    "deep_work_log",
+    "distraction_log",
+    "break_plan",
+    "mood_checkin",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "A lightweight focus system",
+    "included_lines": [
+      "Focus blocks and deep work log",
+      "Distraction log and break plan",
+      "Mood check-in and notes summary"
+    ],
+    "howto_lines": [
+      "Set one block goal",
+      "Log distractions fast",
+      "Plan breaks before you start"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 0
+    "page_count": 8,
+    "grid_variant": 5,
+    "preview_pages": [
+      0,
+      2,
+      3
+    ]
   }
 }

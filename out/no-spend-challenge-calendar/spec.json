@@ -2,15 +2,56 @@
   "niche": "BUDGET",
   "title": "No Spend Challenge Calendar",
   "slug": "no-spend-challenge-calendar",
+  "variant": 0,
+  "theme": "warm_neutral",
+  "archetype": "savings_goal",
   "modules": [
     "cover",
+    "how_to",
     "tracker",
     "notes",
-    "priority_matrix",
-    "how_to"
+    "quick_start",
+    "savings_goal_tracker",
+    "sinking_funds",
+    "no_spend_calendar",
+    "challenge_tracker",
+    "expense_log",
+    "notes_summary",
+    "reflection",
+    "project_steps",
+    "monthly_overview",
+    "goal_setting"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "savings_goal_tracker",
+    "sinking_funds",
+    "no_spend_calendar",
+    "challenge_tracker",
+    "expense_log",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "Small wins that add up",
+    "included_lines": [
+      "Savings goal and sinking funds",
+      "No-spend calendar and challenges",
+      "Expense log and notes summary"
+    ],
+    "howto_lines": [
+      "Pick one goal per sheet",
+      "Track weekly deposits",
+      "Use challenges for momentum"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 0
+    "page_count": 8,
+    "grid_variant": 5,
+    "preview_pages": [
+      0,
+      2,
+      4
+    ]
   }
 }

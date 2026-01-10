@@ -3,8 +3,9 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
-from typing import List
+from typing import Dict, List
 
+from .archetypes import Archetype, pick_archetype, pick_theme
 from ..storage import artifact_path
 
 
@@ -26,11 +27,36 @@ OPTIONAL_MODULES = [
     "project_steps",
 ]
 
+# “스펙 메타”에만 들어가는 옵션 모듈(=제품 설명/태그/차별점에 활용)
+# 주의: renderer가 이걸 그대로 렌더링하지 않아도 됨(=문서 구조는 recipe가 결정)
+OPTIONAL_MODULES_BY_NICHE: Dict[str, List[str]] = {
+    "BUDGET": [
+        "monthly_overview",
+        "goal_setting",
+        "priority_matrix",
+        "weekly_review",
+        "gratitude_log",
+        "reflection",
+        "project_steps",
+    ],
+    "ADHD": [
+        "daily_focus",
+        "weekly_planner",
+        "habit_grid",
+        "mood_checkin",
+        "reflection",
+        "affirmations",
+        "project_steps",
+    ],
+}
 
 def _hash_seed(slug: str, variant: int) -> int:
     seed_input = f"{slug}-{variant}"
     return int(hashlib.md5(seed_input.encode("utf-8")).hexdigest(), 16)
 
+def _hash_seed(slug: str, variant: int) -> int:
+    seed_input = f"{slug}-{variant}"
+    return int(hashlib.md5(seed_input.encode("utf-8")).hexdigest(), 16)
 
 def _select_optional_modules(slug: str, variant: int) -> List[str]:
     seed = _hash_seed(slug, variant)
@@ -58,10 +84,20 @@ def build_spec(niche: str, title: str, slug: str, variant: int = 0) -> dict:
     if variant % 2 == 1:
         modules = [modules[0]] + list(reversed(modules[1:]))
     return {
-        "niche": niche,
-        "title": title,
-        "slug": slug,
+        "niche": n,
+        "title": t,
+        "slug": s,
+        "variant": int(variant),
+        "theme": theme,
+        "archetype": archetype.key,
         "modules": modules,
+        # renderer가 이걸 기반으로 “진짜 다른 PDF”를 찍도록 강제하는 핵심 필드
+        "recipe": recipe,
+        "copy": {
+            "cover_subtitle": archetype.cover_subtitle,
+            "included_lines": list(archetype.included_lines),
+            "howto_lines": list(archetype.howto_lines),
+        },
         "layout": {
             "page_count": 3 + (seed % 3),
             "grid_variant": (seed + variant) % 6,

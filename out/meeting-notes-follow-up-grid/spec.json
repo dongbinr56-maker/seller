@@ -2,16 +2,56 @@
   "niche": "ADHD",
   "title": "Meeting Notes Follow Up Grid",
   "slug": "meeting-notes-follow-up-grid",
+  "variant": 0,
+  "theme": "warm_neutral",
+  "archetype": "project_planner",
   "modules": [
     "cover",
     "how_to",
+    "tracker",
     "notes",
-    "habit_grid",
-    "gratitude_log",
-    "tracker"
+    "quick_start",
+    "project_overview",
+    "task_backlog",
+    "kanban_board",
+    "milestones",
+    "meeting_notes",
+    "notes_summary",
+    "weekly_planner",
+    "affirmations",
+    "mood_checkin",
+    "project_steps"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "project_overview",
+    "task_backlog",
+    "kanban_board",
+    "milestones",
+    "meeting_notes",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "From ideas to finished",
+    "included_lines": [
+      "Project overview and task backlog",
+      "Kanban and milestones",
+      "Meeting notes and summary"
+    ],
+    "howto_lines": [
+      "Define the next milestone",
+      "Pull tasks into Doing",
+      "Keep notes in one system"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 1
+    "page_count": 8,
+    "grid_variant": 2,
+    "preview_pages": [
+      0,
+      2,
+      3
+    ]
   }
 }

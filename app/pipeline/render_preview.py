@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import List
+from typing import List, Tuple
 
-import fitz
+import fitz  # PyMuPDF
 
 from ..storage import artifact_path
 

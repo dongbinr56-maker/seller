@@ -2,16 +2,54 @@
   "niche": "BUDGET",
   "title": "Weekly Spending Snapshot Log",
   "slug": "weekly-spending-snapshot-log",
+  "variant": 0,
+  "theme": "blue_minimal",
+  "archetype": "savings_goal",
   "modules": [
     "cover",
     "how_to",
     "tracker",
     "notes",
-    "goal_setting",
-    "priority_matrix"
+    "quick_start",
+    "savings_goal_tracker",
+    "sinking_funds",
+    "no_spend_calendar",
+    "challenge_tracker",
+    "expense_log",
+    "notes_summary",
+    "weekly_review",
+    "goal_setting"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "savings_goal_tracker",
+    "sinking_funds",
+    "no_spend_calendar",
+    "challenge_tracker",
+    "expense_log",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "Small wins that add up",
+    "included_lines": [
+      "Savings goal and sinking funds",
+      "No-spend calendar and challenges",
+      "Expense log and notes summary"
+    ],
+    "howto_lines": [
+      "Pick one goal per sheet",
+      "Track weekly deposits",
+      "Use challenges for momentum"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 1
+    "page_count": 8,
+    "grid_variant": 3,
+    "preview_pages": [
+      0,
+      2,
+      4
+    ]
   }
 }

@@ -2,16 +2,53 @@
   "niche": "BUDGET",
   "title": "Receipt Capture Expense Log",
   "slug": "receipt-capture-expense-log",
+  "variant": 0,
+  "theme": "blue_minimal",
+  "archetype": "brain_dump",
   "modules": [
     "cover",
     "how_to",
     "tracker",
     "notes",
-    "mood_checkin",
+    "quick_start",
+    "inbox_capture",
+    "clarify_next_action",
+    "priority_matrix",
+    "time_block",
+    "habit_grid",
+    "notes_summary",
     "goal_setting"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "inbox_capture",
+    "clarify_next_action",
+    "priority_matrix",
+    "time_block",
+    "habit_grid",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "Get thoughts out. Get moving.",
+    "included_lines": [
+      "Inbox capture and next actions",
+      "Priority matrix and time blocks",
+      "Habit grid and notes summary"
+    ],
+    "howto_lines": [
+      "Dump everything into Inbox first",
+      "Convert items to next actions",
+      "Plan one focused block at a time"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 3
+    "page_count": 8,
+    "grid_variant": 3,
+    "preview_pages": [
+      0,
+      2,
+      4
+    ]
   }
 }

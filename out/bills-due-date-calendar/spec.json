@@ -2,16 +2,54 @@
   "niche": "BUDGET",
   "title": "Bills Due Date Calendar",
   "slug": "bills-due-date-calendar",
+  "variant": 0,
+  "theme": "blue_minimal",
+  "archetype": "bills_due",
   "modules": [
     "cover",
+    "how_to",
     "tracker",
     "notes",
-    "habit_grid",
-    "priority_matrix",
-    "how_to"
+    "quick_start",
+    "bills_calendar",
+    "bills_due_table",
+    "payment_log",
+    "category_budget",
+    "expense_log",
+    "notes_summary",
+    "project_steps",
+    "gratitude_log"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "bills_calendar",
+    "bills_due_table",
+    "payment_log",
+    "category_budget",
+    "expense_log",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "A clean system for due dates",
+    "included_lines": [
+      "Bills calendar and due table",
+      "Payment log and category budget",
+      "Expense log and notes summary"
+    ],
+    "howto_lines": [
+      "Write recurring bills first",
+      "Check off when paid",
+      "Do a fast monthly reset"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 3
+    "page_count": 8,
+    "grid_variant": 0,
+    "preview_pages": [
+      0,
+      2,
+      3
+    ]
   }
 }
