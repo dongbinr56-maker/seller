@@ -2,16 +2,55 @@
   "niche": "ADHD",
   "title": "Time Block Day Map",
   "slug": "time-block-day-map",
+  "variant": 0,
+  "theme": "charcoal_mono",
+  "archetype": "brain_dump",
   "modules": [
     "cover",
+    "how_to",
     "tracker",
     "notes",
-    "gratitude_log",
+    "quick_start",
+    "inbox_capture",
+    "clarify_next_action",
+    "priority_matrix",
+    "time_block",
+    "habit_grid",
+    "notes_summary",
     "reflection",
-    "how_to"
+    "daily_focus",
+    "weekly_planner"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "inbox_capture",
+    "clarify_next_action",
+    "priority_matrix",
+    "time_block",
+    "habit_grid",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "Get thoughts out. Get moving.",
+    "included_lines": [
+      "Inbox capture and next actions",
+      "Priority matrix and time blocks",
+      "Habit grid and notes summary"
+    ],
+    "howto_lines": [
+      "Dump everything into Inbox first",
+      "Convert items to next actions",
+      "Plan one focused block at a time"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 1
+    "page_count": 8,
+    "grid_variant": 4,
+    "preview_pages": [
+      0,
+      2,
+      4
+    ]
   }
 }

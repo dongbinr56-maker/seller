@@ -2,15 +2,55 @@
   "niche": "ADHD",
   "title": "Brain Dump Inbox Sheets",
   "slug": "brain-dump-inbox-sheets",
+  "variant": 0,
+  "theme": "warm_neutral",
+  "archetype": "brain_dump",
   "modules": [
     "cover",
     "how_to",
     "tracker",
     "notes",
+    "quick_start",
+    "inbox_capture",
+    "clarify_next_action",
+    "priority_matrix",
+    "time_block",
+    "habit_grid",
+    "notes_summary",
+    "affirmations",
+    "project_steps",
     "mood_checkin"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "inbox_capture",
+    "clarify_next_action",
+    "priority_matrix",
+    "time_block",
+    "habit_grid",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "Get thoughts out. Get moving.",
+    "included_lines": [
+      "Inbox capture and next actions",
+      "Priority matrix and time blocks",
+      "Habit grid and notes summary"
+    ],
+    "howto_lines": [
+      "Dump everything into Inbox first",
+      "Convert items to next actions",
+      "Plan one focused block at a time"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 0
+    "page_count": 8,
+    "grid_variant": 2,
+    "preview_pages": [
+      0,
+      2,
+      4
+    ]
   }
 }

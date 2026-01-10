@@ -2,15 +2,55 @@
   "niche": "ADHD",
   "title": "Morning Launch Routine Card",
   "slug": "morning-launch-routine-card",
+  "variant": 0,
+  "theme": "charcoal_mono",
+  "archetype": "routine_builder",
   "modules": [
     "cover",
+    "how_to",
     "tracker",
     "notes",
-    "weekly_review",
-    "how_to"
+    "quick_start",
+    "morning_routine",
+    "evening_routine",
+    "weekly_routine",
+    "habit_grid",
+    "gratitude_log",
+    "notes_summary",
+    "project_steps",
+    "weekly_planner",
+    "affirmations"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "morning_routine",
+    "evening_routine",
+    "weekly_routine",
+    "habit_grid",
+    "gratitude_log",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "Routines that feel doable",
+    "included_lines": [
+      "Morning and evening routines",
+      "Weekly routine and habit grid",
+      "Gratitude and notes summary"
+    ],
+    "howto_lines": [
+      "Start with the smallest version",
+      "Repeat for one week",
+      "Adjust, do not restart"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 0
+    "page_count": 8,
+    "grid_variant": 4,
+    "preview_pages": [
+      0,
+      2,
+      4
+    ]
   }
 }

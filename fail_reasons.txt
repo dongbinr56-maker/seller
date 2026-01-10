@@ -1,0 +1,14 @@
+== brain-dump-inbox-sheets ==
+Spec too similar to evening-shutdown-checklist
+== weekly-priority-reset-planner ==
+Spec too similar to morning-launch-routine-card
+== next-action-decision-tree ==
+Spec too similar to morning-launch-routine-card
+== debt-avalanche-payment-planner ==
+Spec too similar to expense-category-envelope-tracker
+== no-spend-challenge-calendar ==
+Spec too similar to subscription-renewal-tracker
+== quarterly-budget-review-worksheet ==
+Spec too similar to expense-category-envelope-tracker
+== cash-flow-forecast-worksheet ==
+Spec too similar to savings-goal-ladder-chart

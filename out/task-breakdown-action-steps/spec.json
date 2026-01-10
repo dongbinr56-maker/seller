@@ -2,15 +2,54 @@
   "niche": "ADHD",
   "title": "Task Breakdown Action Steps",
   "slug": "task-breakdown-action-steps",
+  "variant": 0,
+  "theme": "blue_minimal",
+  "archetype": "project_planner",
   "modules": [
     "cover",
     "how_to",
     "tracker",
     "notes",
-    "gratitude_log"
+    "quick_start",
+    "project_overview",
+    "task_backlog",
+    "kanban_board",
+    "milestones",
+    "meeting_notes",
+    "notes_summary",
+    "habit_grid",
+    "mood_checkin"
   ],
+  "recipe": [
+    "cover",
+    "quick_start",
+    "project_overview",
+    "task_backlog",
+    "kanban_board",
+    "milestones",
+    "meeting_notes",
+    "notes_summary"
+  ],
+  "copy": {
+    "cover_subtitle": "From ideas to finished",
+    "included_lines": [
+      "Project overview and task backlog",
+      "Kanban and milestones",
+      "Meeting notes and summary"
+    ],
+    "howto_lines": [
+      "Define the next milestone",
+      "Pull tasks into Doing",
+      "Keep notes in one system"
+    ]
+  },
   "layout": {
-    "page_count": 3,
-    "grid_variant": 2
+    "page_count": 8,
+    "grid_variant": 3,
+    "preview_pages": [
+      0,
+      2,
+      3
+    ]
   }
 }
